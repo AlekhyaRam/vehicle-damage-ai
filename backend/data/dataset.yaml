@@ -1,0 +1,8 @@
+path: .
+train: images/train
+val: images/val
+test: images/test
+
+# class 0 = "damage" is fine for a starter; expand to dents/scratches/windows etc. later
+names:
+  0: damage
