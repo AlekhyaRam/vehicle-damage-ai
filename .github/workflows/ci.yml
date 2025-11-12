@@ -17,14 +17,14 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install deps
+      - name: Install dependencies
         working-directory: backend
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install pytest
 
-      - name: Tests
+      - name: Run tests
         working-directory: backend
         run: pytest -q
 
@@ -50,6 +50,7 @@ jobs:
           context: .
           file: backend/Dockerfile
           push: true
-          tags: ghcr.io/${{ format('{0}', github.alekhyaram) }}/vehicle-damage-ai:latest
+          tags: ghcr.io/alekhyaram/vehicle-damage-ai:latest
           build-args: |
             APP_ENV=production
+            APP_DEBUG=false
